@@ -1,1 +1,10 @@
-# Write your code below this line 👇
+# print("Hello "  + input("What is your name?"))
+# name=input("What is your name?")
+# print(name)
+# name=input("What is your name?")
+# length=len(name)
+# print(length)
+print("Welcome to the Band Name Generator")
+city = input("What's the name of the city you grow up in?\n")
+pet = input("What's your pet's name?\n")
+print("Your band name could be " + city + " " + pet)
