@@ -61,23 +61,23 @@
 # print(f"Your score is {score} , Your height is {height}, You are winning is {isWinning}"  )
 
 
-print("Welcome to the tip calculator")
-total_bill=input("What was the total bill? $")
-tip=input("How much tip mould you like to give? 10, 12, 15 ")
-people=input("How many people to split the bill?")
+# print("Welcome to the tip calculator")
+# total_bill=input("What was the total bill? $")
+# tip=input("How much tip mould you like to give? 10, 12, 15 ")
+# people=input("How many people to split the bill?")
 
-tb=float(total_bill)
-ti=int(tip)
-pe=int(people)
+# tb=float(total_bill)
+# ti=int(tip)
+# pe=int(people)
 
-tip_percent=ti/100
-total_tip=tb*tip_percent
-total_bill=tb+total_tip
-bill_per_person=total_bill/pe
+# tip_percent=ti/100
+# total_tip=tb*tip_percent
+# total_bill=tb+total_tip
+# bill_per_person=total_bill/pe
 
-final_amount=round(bill_per_person,2)
-final_amount="{:.2f}".format(bill_per_person)
-print(f"Each person should pay: ${final_amount}")
+# final_amount=round(bill_per_person,2)
+# final_amount="{:.2f}".format(bill_per_person)
+# print(f"Each person should pay: ${final_amount}")
 
 
 
