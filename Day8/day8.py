@@ -45,4 +45,16 @@ def encrypt(text_a, shift_a):
         new_letter = alphabet[new_position]
         encrypted_text += new_letter
     print(f"The encoded text is {encrypted_text}")
-encrypt(text_a=text, shift_a=shift)
+    
+def decode(text_b, shift_b):
+    decrypted_code = ""
+    for loop in text_b:
+        position=alphabet.index(loop)
+        new_position = position - shift_b
+        decrypted_code += alphabet[new_position]
+    print(f"The decoded text is {decrypted_code}")
+       
+if direction == "encode":  
+    encrypt(text_a=text, shift_a=shift)
+elif direction == "decode":
+    decode(text_b=text, shift_b=shift)
