@@ -32,17 +32,22 @@
 
 #Nesting a dictionary in a list
 
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-travel_log=[
-    {
-   "country": "Nepal", 
-   "Cities_visited": ["Kathmandu", "Bhaktapur", "Dalitpur"],
-   "total_visits" : 12
-},
-    {
-   "country": "USA",
-   "Cities_in_usa" :["Texas", "California", "Hawai"], 
-   "total_visits" : 3
-    }
-]
-print(travel_log)
+# travel_log=[
+#     {
+#    "country": "Nepal", 
+#    "Cities_visited": ["Kathmandu", "Bhaktapur", "Dalitpur"],
+#    "total_visits" : 12
+# },
+#     {
+#    "country": "USA",
+#    "Cities_in_usa" :["Texas", "California", "Hawai"], 
+#    "total_visits" : 3
+#     }
+# ]
+# print(travel_log)
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
