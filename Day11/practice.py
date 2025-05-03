@@ -43,7 +43,7 @@
 #     total_computer=sum(user_cards)
 #     return total_user, total_computer
 
-# if total_user == 21 and len(user_cards == 2):
+# if total_user == 21 and len(user_cards == 2):m
 #     return 0
 # if 11 in cards and total_user>21:
 #     user_cards.remove(11)
