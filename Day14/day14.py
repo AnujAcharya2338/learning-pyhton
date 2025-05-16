@@ -15,15 +15,21 @@ print(logo)
 
 choice1=data[index1]
 choice2=data[index2]
-highest=[]
-def compare(a_followers,b_followers):
-    
-  
 
+def compare(a_followers,b_followers):
+    if a_followers > b_followers:
+        return a_followers
+    else:
+        return b_followers
+    
 print(f"Compare A: {choice1['name']}, a {choice1['description']}, from {choice1['country']}")
 print(vs)
 print(f"Compare B: {choice2['name']}, a {choice2['description']}, from {choice2['country']}")
 
-aorb=input("Who haas more followers?? 'A' or 'B'")
-if choice1['follower_count'] > choice2['followers_count']:
-    compare(choice1['follower_count'],choice2['follower_count'])
+aorb=int(input("Who haas more followers?? 'A' or 'B'"))
+
+correct_ans=compare(choice1['follower_count'],choice2['follower_count'])
+if aorb == correct_ans == True:
+    print(f"You are right")
+else:
+    print("You are wrong")
