@@ -3,8 +3,8 @@ menu = {
     "espresso": {
         "ingredients" : {
             "water" : 50,
-            "milk" : 0,
              "coffee": 18,
+             "milk":0,
             },
         "cost" : 1.5,
     },
@@ -46,13 +46,28 @@ def sufficient_resources(choice):
         return False
     
     return True
-# def process_coins():
+def process_coins(quarter, dimes, nickles, pennies):
+    total_money=quarter*0.5 + dimes*0.10 + nickles*0.05 + pennies*0.01
+    return total_money
+def is_money_enough(choice,moneycame):
+    if menu[choice]["cost"] > moneycame:
+        print("Sorry! That's not enough money. Money Refunded. ")
+        return False
+    return True   
     
-
 coffee_choice=input("What  would you like? (Espresso/ Latte/ cappuccino: )").strip().lower()
 if coffee_choice == "report":
     print(resources)
+    coffee_choice=input("What  would you like? (Espresso/ Latte/ cappuccino: )").strip().lower()
+    
 sufficient_resources(coffee_choice)
+print("Insert coins to get a drink")
+quarter=float(input("Insert Quarters: $"))
+dimes=float(input("Insert dimes: $"))
+nickles=float(input("Insert nickles: $"))
+pennies=float(input("Insert pennies: $"))
+money_received=process_coins(quarter, dimes, nickles, pennies)
+is_money_enough(coffee_choice,money_received)
 
 
 
