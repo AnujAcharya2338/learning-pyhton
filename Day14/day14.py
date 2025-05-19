@@ -5,14 +5,11 @@ import random
 
 length=len(data)
 
-count = 0
-game_end = False
 index1=random.randint(0,length-1)
 index2=random.randint(0,length-1)
 print(logo)
 
-choice1=data[index1]
-choice2=data[index2]
+
 
 def compare(a_followers,b_followers):
     if a_followers > b_followers:
@@ -20,16 +17,36 @@ def compare(a_followers,b_followers):
     else:
         return 'B'
     
-print(f"Compare A: {choice1['name']}, a {choice1['description']}, from {choice1['country']}")
-print(vs)
-print(f"Compare B: {choice2['name']}, a {choice2['description']}, from {choice2['country']}")
 
-aorb=input("Who has more followers?? 'A' or 'B'.").strip().upper()
+def inpuut(c1,c2):
+    
+    print(f"Compare A: {c1['name']}, a {c1['description']}, from {c1['country']}")
+    print(vs)
+    print(f"Compare B: {c2['name']}, a {c2['description']}, from {c2['country']}")
+    
 
-correct_ans=compare(choice1['follower_count'],choice2['follower_count'])
 
-if aorb == correct_ans:
-    print(f"You are right")  
-    count +=1
-else:
-    print("You are wrong")
+def game():
+    game_should_continue = True
+    count = 0
+    choice1=data[index1]
+    choice2=data[index2]
+    while choice2 == choice1:
+        choice2 = random.choice(data)
+    while game_should_continue:
+        inpuut(choice1, choice2)
+        aorb=input("Who has more followers?? 'A' or 'B'.").strip().upper()
+        highest_followers=compare(choice1['follower_count'],choice2['follower_count'])
+        
+        
+        if aorb == highest_followers:
+                count +=1
+                print(f"You are right! Current score:{count}")  
+                choice1 = choice2
+                choice2 = random.choice(data)
+                while choice2 == choice1:
+                    choice2 = random.choice(data)
+        else:
+                print(f"You are wrong! Total score:{count}")
+                game_should_continue = False
+game()
