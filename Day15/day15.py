@@ -36,7 +36,7 @@ def sufficient_resources(choice):
     if resources["water"] < menu[choice]["ingredients"]["water"]:
         print("Sorry, there is not enough water!!")
         return False
-    
+        
     if resources["coffee"] < menu[choice]["ingredients"]["coffee"]:
         print("Sorry, there is not enough coffee!!")
         return False
@@ -47,27 +47,45 @@ def sufficient_resources(choice):
     
     return True
 def process_coins(quarter, dimes, nickles, pennies):
-    total_money=quarter*0.5 + dimes*0.10 + nickles*0.05 + pennies*0.01
+    total_money=quarter*0.25 + dimes*0.10 + nickles*0.05 + pennies*0.01
     return total_money
-def is_money_enough(choice,moneycame):
+def is_money_enough(choice,moneycame,profit):
     if menu[choice]["cost"] > moneycame:
         print("Sorry! That's not enough money. Money Refunded. ")
         return False
-    return True   
     
-coffee_choice=input("What  would you like? (Espresso/ Latte/ cappuccino: )").strip().lower()
-if coffee_choice == "report":
-    print(resources)
+    if menu[choice]["cost"] < moneycame:
+            change_money= round(moneycame - menu[choice]["cost"], 2)
+            print(f"Your change is: ${change_money} ")
+            
+    
+    profit += menu[choice]["cost"]
+    return profit
+
+while is_on:
     coffee_choice=input("What  would you like? (Espresso/ Latte/ cappuccino: )").strip().lower()
+    if coffee_choice == "off":
+        is_on = False
+        break
+    if coffee_choice == "report":
+        print(f"{resources} profit: {profit}")
+        continue
     
-sufficient_resources(coffee_choice)
-print("Insert coins to get a drink")
-quarter=float(input("Insert Quarters: $"))
-dimes=float(input("Insert dimes: $"))
-nickles=float(input("Insert nickles: $"))
-pennies=float(input("Insert pennies: $"))
-money_received=process_coins(quarter, dimes, nickles, pennies)
-is_money_enough(coffee_choice,money_received)
-
-
-
+    
+    
+    if not sufficient_resources(coffee_choice):
+        continue
+    print("Insert coins to get a drink")
+    quarter=float(input("Insert Quarters: $"))
+    dimes=float(input("Insert dimes: $"))
+    nickles=float(input("Insert nickles: $"))
+    pennies=float(input("Insert pennies: $"))
+    money_received=process_coins(quarter, dimes, nickles, pennies)
+    new_profit=is_money_enough(coffee_choice,money_received,profit)
+    print(new_profit)
+    if new_profit :
+        profit = new_profit
+        resources["water"]=resources["water"]-menu[coffee_choice]["ingredients"]["water"]
+        resources["coffee"]=resources["coffee"]-menu[coffee_choice]["ingredients"]["coffee"]
+        resources["milk"]=resources["milk"]-menu[coffee_choice]["ingredients"]["milk"]
+        print(resources)
