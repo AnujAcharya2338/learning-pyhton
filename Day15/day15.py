@@ -82,10 +82,11 @@ while is_on:
     pennies=float(input("Insert pennies: $"))
     money_received=process_coins(quarter, dimes, nickles, pennies)
     new_profit=is_money_enough(coffee_choice,money_received,profit)
-    print(new_profit)
+
+    print(f"Here is your {coffee_choice}. Enjoy!")
     if new_profit :
         profit = new_profit
         resources["water"]=resources["water"]-menu[coffee_choice]["ingredients"]["water"]
         resources["coffee"]=resources["coffee"]-menu[coffee_choice]["ingredients"]["coffee"]
         resources["milk"]=resources["milk"]-menu[coffee_choice]["ingredients"]["milk"]
-        print(resources)
+        
