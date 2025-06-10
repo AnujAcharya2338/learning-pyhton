@@ -1,31 +1,14 @@
-from turtle import Turtle, Screen
+from turtle import Screen as s, Turtle as t
 
-timmy_the_turtle = Turtle()
-timmy_the_turtle.shape("turtle")
-timmy_the_turtle.color("red")
-timmy_the_turtle.left(45)
-timmy_the_turtle.forward(100)
-timmy_the_turtle.forward(100)
-timmy_the_turtle.right(90)
-timmy_the_turtle.forward(100)
-timmy_the_turtle.forward(100)
-timmy_the_turtle.right(180)
-timmy_the_turtle.forward(100)
-timmy_the_turtle.left(45)
-timmy_the_turtle.forward(130)
+tim = t()
+tim.shape("turtle")
+tim.color("red")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-screen = Screen()
+for _ in range(50): 
+     
+  tim.forward(10)
+  tim.penup()
+  tim.forward(10)
+  tim.pendown()
+screen = s()
 screen.exitonclick()
