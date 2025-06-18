@@ -1,5 +1,5 @@
 from turtle import Turtle
-STARTING_POSITION=[0,-20,-40]
+STARTING_POSITION=[(0, 0), (-20, 0), (-40, 0)]
 MOVEMENT = 20
 UP = 90
 DOWN=270
@@ -11,21 +11,29 @@ class Snake:
         self.create_snake()
     
     def create_snake(self):
-        for position in range(0,3):
+        for position in STARTING_POSITION:
+            self.add_snake(position)
+    
+    def add_snake(self, position):
             half_snake=Turtle()
             half_snake.shape("square")
             half_snake.color("white")
             half_snake.penup()
-            half_snake.goto(x=STARTING_POSITION[position],y=0)
+            half_snake.goto(position)
             self.snake.append(half_snake)
-        
+            
+    def increase(self):
+            self.add_snake(self.snake[-1].position())
+            
+            
     def move(self):   
         for seg in range(len(self.snake)-1,0,-1):
             x_cordinate=self.snake[seg-1].xcor()
             y_cordinate=self.snake[seg-1].ycor()
             self.snake[seg].goto(x_cordinate,y_cordinate)
         self.snake[0].forward(MOVEMENT)
-    
+        
+        
     def up(self):
         if self.snake[0].heading() != DOWN:
           self.snake[0].setheading(UP)
@@ -38,3 +46,4 @@ class Snake:
     def right(self):
         if self.snake[0].heading() != LEFT:
              self.snake[0].setheading(RIGHT)
+     
